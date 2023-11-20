@@ -4,7 +4,7 @@ import elephant from "./images/elephant.jpeg";
 
 export default class AppClass extends Component{
   
-  imageData = ()=>{
+ imageData = ()=>{
     let data = [
       {
         id:1,
@@ -27,4 +27,25 @@ export default class AppClass extends Component{
   }
 
   // code here
+  constructor(){
+    super();
+    this.state={
+      images:this.imageData()
+    };
+      
 }
+
+render() {
+  return (
+    <div className='App'>
+      {this.state.images.map((image) => (
+        <div key={image.id} className='image-container'>
+          <img src={image.img} alt="y" />
+        </div>
+      ))}
+    </div>
+  );
+}
+}
+
+
